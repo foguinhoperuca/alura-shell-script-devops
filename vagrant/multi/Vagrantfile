@@ -1,0 +1,10 @@
+Vagrant.configure("2") do |config|
+
+  config.vm.define "phpweb" do |php_config|
+    php_config.vm.box = "apache"
+  end
+
+  config.vm.define "mysqldb" do |mysql_config|
+    mysql_config.vm.box = "ubuntu/bionic64"
+  end
+end
