@@ -1,0 +1,20 @@
+---
+- hosts: all
+  tasks:
+    - shell: 'echo hello > /home/admlocal/universal/output/world.txt'
+    - name: 'Custom install for vim :D'
+      apt:
+        name: vim
+        state: latest
+      become: yes
+    - name: 'Install Python'
+      apt:
+        name: python3
+        state: latest
+      become: yes
+    - name: 'Install Apache 2'
+      apt:
+        name: apache2
+        state: latest
+      become: yes
+      

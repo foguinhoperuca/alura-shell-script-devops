@@ -1,0 +1,23 @@
+Vagrant.configure("2") do |config|
+  config.vm.box = "ubuntu/jammy64"
+  config.vm.box_download_insecure = true
+
+  config.vm.provider "virtualbox" do |v|
+	v.memory = 1024
+  end
+
+  config.vm.define "wordpress" do |m|
+	m.vm.network "private_network", ip: "172.16.1.99"
+    # m.vm.network "private_network", ip: "192.168.56.101"
+  end
+
+  config.vm.define "python_django" do |m|
+	m.vm.network "private_network", ip: "172.16.1.99"
+    # m.vm.network "private_network", ip: "192.168.56.101"
+  end
+
+end
+
+
+
+/  172.16.1.12(rw,sync,no_root_squash,no_subtree_check) 172.16.9.60(rw,sync,no_root_squash,no_subtree_check) 172.16.9.14(rw,sync,no_root_squash,no_subtree_check) 172.16.1.36(rw,sync,no_root_squash,no_subtree_check)
