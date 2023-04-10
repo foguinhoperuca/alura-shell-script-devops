@@ -1,5 +1,9 @@
 .PHONY: deploy-ansilble
 
+wordpress-run:
+	clear
+	ansible-playbook provisioning.yml -u vagrant -i hosts --private-key .vagrant/machines/wordpress/virtualbox/private_key
+
 deploy-ansible-stage:
 	clear
 	scp * ladm@172.16.1.12:/home/ladm/universal/projects/pms/alura/devops/ansible/
