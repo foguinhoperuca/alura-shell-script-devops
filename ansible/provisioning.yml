@@ -1,10 +1,15 @@
 ---
 - hosts: all
   tasks:
-    - shell: 'echo hello > /home/admlocal/universal/output/world.txt'
-    - name: 'Custom install for vim :D'
+    # - shell: 'echo hello > /home/vagrant/universal/output/world.txt'
+    - name: 'Custom install for php'
       apt:
-        name: vim
+        name: php
+        state: latest
+      become: yes
+    - name: 'mod php for apache'
+      apt:
+        name: libapache2-mod-php
         state: latest
       become: yes
     - name: 'Install Python'
