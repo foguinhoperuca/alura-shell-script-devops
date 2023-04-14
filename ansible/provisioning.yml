@@ -1,20 +1,24 @@
 ---
 - hosts: all
   tasks:
-    # - shell: 'echo hello > /home/vagrant/universal/output/world.txt'
     - name: 'Install dependencies'
       apt:
-        name: "{{ item }}"
+        name:
+          - git
+          - apache2
+          - php
+          - libapache2-mod-php
+          - php-gd
+          # - php-ssh2
+          # - php-mcrypt
+          - mysql-server
+          - python3-mysqldb
+          - php-mysql
         state: latest
       become: yes
-      with_items:
-        - apache2
-        - php
-        - libapache2-mod-php
-        - php-gd
-        # - libssh2-php           # ubuntu 22.10: php-ssh2
-        - php-ssh2
-        # - php-mcrypt
-        - mysql-server
-        - python3-mysqldb
-        - php-mysql
+    - name: 'Conf MySQL DB'
+      mysql_db:
+        name: wordpress_db
+        login_user: root
+        state: absent
+      become: yes
