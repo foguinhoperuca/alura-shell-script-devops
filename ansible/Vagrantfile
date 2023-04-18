@@ -10,8 +10,8 @@ Vagrant.configure("2") do |config|
     m.vm.network "private_network", ip: "192.168.56.101" # alternative 172.16.1.98
   end
 
-  # config.vm.define "python_django" do |m|
-  #   m.vm.network "private_network", ip: "192.168.56.102" # alternative 172.16.1.99
-  # end
+  config.vm.define "mysql" do |m|
+    m.vm.network "private_network", ip: "192.168.56.102" # alternative 172.16.1.99
+  end
 
 end
