@@ -34,25 +34,25 @@
       become: yes
     - name: 'Copy Configuration File for Wordpress'
       copy:
-        src: '/var/www/wordpress/wp-config-sample.php'
-        dest: '/var/www/wordpress/wp-config.php'
+        src: "{{ wp_installation_dir }}/wp-config-sample.php"
+        dest: "{{ wp_installation_dir }}/wp-config.php"
         remote_src: yes
       become: yes
     - name: 'Replace Config File with Correct Data'
       replace:
-        path: '/var/www/wordpress/wp-config.php'
+        path: "{{ wp_installation_dir }}/wp-config.php"
         regexp: '{{ item.regex }}'
         replace: '{{ item.value }}'
         backup: yes
       with_items:
-        - { regex: 'database_name_here', value: 'wordpress_db' }
-        - { regex: 'username_here', value: 'wordpress_user' }
-        - { regex: 'password_here', value: 'A12345678a' }
-        - { regex: 'localhost', value: '192.168.56.102' }
+        - { regex: 'database_name_here', value: "{{ wp_db_name }}" }
+        - { regex: 'username_here', value: "{{ wp_username }}" }
+        - { regex: 'password_here', value: "{{ wp_user_password }}" }
+        - { regex: 'localhost', value: "{{ wp_db_ip }}" }
       become: yes
     - name: 'Copy Apache Configuration File'
-      copy:
-        src: 'conf_files/wordpress.conf'
+      template:
+        src: 'templates/wordpress.conf.j2'
         dest: '/etc/apache2/sites-available/wordpress.conf'
       become: yes
       notify:
@@ -80,22 +80,22 @@
       become: yes
     - name: 'Conf MySQL DB'
       mysql_db:
-        name: wordpress_db
+        name: "{{ wp_db_name }}"
         login_user: root
         state: present
       become: yes
     - name: 'Create database user'
       mysql_user:
         login_user: root
-        name: wordpress_user
-        password: 'A12345678a'
-        priv: 'wordpress_db.*:ALL,GRANT'
+        name: "{{ wp_username }}"
+        password: "{{ wp_user_password }}"
+        priv: "{{ wp_db_name }}.*:ALL,GRANT"
         state: present
         host: "{{ item }}"
       with_items:
         - 'localhost'
         - '127.0.0.1'
-        - '192.168.56.101'
+        - "{{ wp_app_ip }}"
       become: yes
     - name: 'Configure MySQL to accept remote connections'
       copy:

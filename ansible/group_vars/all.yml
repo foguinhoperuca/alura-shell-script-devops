@@ -1,0 +1,4 @@
+wp_username: 'wordpress_user'
+wp_db_name: 'wordpress_db'
+wp_user_password: 'A12345678a'
+wp_dns: 'wordpress-ansible.sorocaba.sp.gov.br'
