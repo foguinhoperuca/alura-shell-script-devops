@@ -1,0 +1,7 @@
+---
+- name: 'Restart Apache2'
+  service:
+    name: apache2
+    state: restarted
+  become: yes
+  listen: 'Setup Apache2'

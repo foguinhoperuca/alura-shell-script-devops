@@ -1,0 +1,12 @@
+<VirtualHost *:80>
+	ServerName {{ app_dns }}
+	ServerAdmin jecampos@sorocaba.sp.gov.br
+	DocumentRoot {{ app_installation_dir }}
+
+	LogLevel info
+
+	ErrorLog ${APACHE_LOG_DIR}/{{ app_dns }}_error.log
+	CustomLog ${APACHE_LOG_DIR}/{{ app_dns }}_access.log combined
+</VirtualHost>
+
+# vim: syntax=apache ts=4 sw=4 sts=4 sr noet

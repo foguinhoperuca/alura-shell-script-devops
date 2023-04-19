@@ -1,0 +1,28 @@
+---
+- name: 'Install dependencies'
+  apt:
+    name:
+      - git
+      - apache2
+      - php
+      - libapache2-mod-php
+      - php-gd
+      # - php-ssh2
+      # - php-mcrypt
+      - php-mysql
+    state: latest
+  become: yes
+
+- name: 'Copy Apache Configuration File'
+  template:
+    src: 'templates/apache2_virtual_host.conf.j2'
+    dest: "/etc/apache2/sites-available/{{ app_dns }}.conf"
+  become: yes
+  notify:
+    - 'Setup Apache2'
+
+- name: 'Enabling App Site'
+  shell: "/usr/sbin/a2ensite {{app_dns}}.conf"
+  become: yes
+  notify:
+    - 'Setup Apache2'
