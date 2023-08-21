@@ -56,3 +56,10 @@ m4/lt~obsolete.m4
 
 ## Vagrant
 .vagrant
+
+## Node
+node_modules/
+package-lock.json
+
+# patch, git and workflow
+*.patch
