@@ -26,6 +26,6 @@ resource "aws_instance" "app_server" {
                  EOF
 
   tags = {
-    Name = "Alura AWS test"
+    Name = "Terraform ansible Python"
   }
 }
