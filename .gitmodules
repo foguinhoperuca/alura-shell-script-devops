@@ -1,0 +1,3 @@
+[submodule "testes-automatizados_pipeline_github-actions/projeto-go-testes"]
+	path = testes-automatizados_pipeline_github-actions/projeto-go-testes
+	url = git@github.com:guilhermeonrails/projeto-go-testes
