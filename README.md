@@ -5,4 +5,5 @@ All learning materials.
 - Ansible
 - Docker
 - Vagrant
+- Terraform
 - ...
