@@ -1,3 +1,0 @@
-[submodule "gh-actions/go-tests"]
-	path = gh-actions/go-tests
-	url = git@github.com:guilhermeonrails/projeto-go-testes
