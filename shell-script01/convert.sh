@@ -74,6 +74,24 @@ function search_subdir() {
     echo "---- END $1"
 }
 
+pc_process_report() {
+    echo "PC PROCESS REPORT"
+
+    PROCESSES=$(ps -e -o pid --sort -size | head -n 11 | grep -v PID)
+    echo "List of processes:"
+    echo "$PROCESSES"
+    echo "---"
+    echo "Details:"
+
+    for process in $PROCESSES
+    do
+        name=$(ps -p $process -o comm=)
+        memory=$(ps -p $process -o size | grep -v SIZE)
+        val=$(bc <<< "scale=2;$memory/1024")
+        echo "Process $process details: datetime $(date +'%Y-%m-%d_%H-%M-%S') name is $name size is $val MB ($memory KB)" >> logs/$name.log
+    done
+}
+
 case $1 in
     "single")
         image=$2
@@ -104,6 +122,10 @@ case $1 in
         echo "SUBDIR images converted!!"
         echo "----"
         ;;
+    "pcprocess")
+        clear
+        pc_process_report
+        ;;
     *)
         # TODO better usage message
         echo "USAGE: [single | multi | all_images | subdir]. $1 *NOT* found!!"
@@ -111,8 +133,7 @@ case $1 in
         # echo "multi"
         # echo "all_images"
         # echo "subdir"
-        # echo "env [local | dev | stage | prod] <OPTIONAL_GIT_REPOS> <OPTIONAL_GIT_BRANCH>. GIT_REPOS default is backend; GIT_BRANCH default is same as TARGET_ENV: (now is $TARGET_ENV)."
-        # echo "terraform - prepare devops"
+        # echo "pcprocess"
 esac
 
 echo "Exit status is: $?"
