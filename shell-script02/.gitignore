@@ -1,3 +1,6 @@
 test_email.md
 email_*.tpl
 *.bkp
+backup/*
+.pgpass*
+.target-server*

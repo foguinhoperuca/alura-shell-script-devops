@@ -5,6 +5,16 @@ LOG_SRC="$(pwd)/apache.log"
 TEMPLATE_EMAIL_APACHE=email_apache.tpl
 TEMPLATE_EMAIL_MEMORY=email_memory.tpl
 NOW=$(date +"%Y-%m-%dT%H-%M-%S")
+BKP_PATH=$(pwd)/backup
+REMOTE_BKP_PATH=$HOME/universal/data/backup/multitude
+export PGPASSFILE=.pgpass
+export DB_HOST=$(cat $PGPASSFILE | cut -d : -f1 | sed -n '1,1p')
+export DB_PORT=$(cat $PGPASSFILE | cut -d : -f2 | sed -n '1,1p')
+export DB_DATABASE=$(cat $PGPASSFILE | cut -d : -f3 | sed -n '1,1p')
+export DB_USER=$(cat $PGPASSFILE | cut -d : -f4 | sed -n '1,1p')
+export TARGET_SERVER_FILE=.target-server
+export TARGET_SERVER_ADDR=$(cat $TARGET_SERVER_FILE | grep TARGET_SERVER_ADDR | cut -d = -f2)
+export TARGET_SERVER_USER=$(cat $TARGET_SERVER_FILE | grep TARGET_SERVER_USER | cut -d = -f2)
 
 function search_subdir() {
     cd $1
@@ -139,6 +149,68 @@ monitor_memory() {
     fi
 }
 
+backup_db() {
+    if [ ! -d $BKP_PATH ];
+    then
+        echo "Missing $BKP_PATH at $NOW -- creating it..."
+        mkdir -p $BKP_PATH
+    fi
+
+    echo "Credentials to access DB: $DB_HOST $DB_PORT $DB_DATABASE $DB_USER"
+
+    psql -h $DB_HOST -p $DB_PORT -d $DB_DATABASE -U $DB_USER -f multitude.sql
+
+    # TODO do backup with custom format or not
+    # pg_dump -c -Fp -h $DB_HOST -p $DB_PORT -d $DB_DATABASE -U $DB_USER -f $BKP_PATH/"$NOW"_backup.sql  
+    pg_dump -c -Fc -h $DB_HOST -p $DB_PORT -d $DB_DATABASE -U $DB_USER -f $BKP_PATH/"$NOW"_backup.dump 
+    
+    psql -h $DB_HOST -p $DB_PORT -d $DB_DATABASE -U $DB_USER -c 'SELECT * FROM shell_script_02.produtos LIMIT 5;'
+    psql -h $DB_HOST -p $DB_PORT -d $DB_DATABASE -U $DB_USER -c 'SELECT * FROM shell_script_02.usuarios LIMIT 5;'
+
+    psql -h $DB_HOST -p $DB_PORT -d $DB_DATABASE -U $DB_USER -c 'DELETE FROM shell_script_02.produtos;'
+    psql -h $DB_HOST -p $DB_PORT -d $DB_DATABASE -U $DB_USER -c 'DELETE FROM shell_script_02.usuarios;'
+
+    psql -h $DB_HOST -p $DB_PORT -d $DB_DATABASE -U $DB_USER -c 'SELECT COUNT(*) AS "TOTAL PRODUTOS" FROM shell_script_02.produtos LIMIT 5;'
+    psql -h $DB_HOST -p $DB_PORT -d $DB_DATABASE -U $DB_USER -c 'SELECT COUNT(*) AS "TOTAL USUARIOS" FROM shell_script_02.usuarios LIMIT 5;'
+
+    scp backup/* $TARGET_SERVER_USER@$TARGET_SERVER_ADDR:$REMOTE_BKP_PATH
+
+}
+
+
+restore_db() {
+    restore_target=$1
+    if [ -z $restore_target ];
+    then
+        echo "*NOT ALLOWED* without restore target"
+        exit 1
+    fi
+    echo ""
+    echo "RESTORE DB! $restore_target"
+    echo "..."
+    
+    echo "..."
+    echo ""
+    echo "Credentials to access DB: $DB_HOST $DB_PORT $DB_DATABASE $DB_USER"
+
+    RESTORE_CMD="psql -h $DB_HOST -p $DB_PORT -d $DB_DATABASE -U $DB_USER -f $REMOTE_BKP_PATH/"$restore_target"_backup.sql"
+    bkp_file=$(ls $REMOTE_BKP_PATH/ | sed -E "s/_backup.sql//" | grep -w $restore_target)
+    if [ $? -ne 0 ];
+    then
+        RESTORE_CMD="pg_restore --clean --if-exists -h $DB_HOST -p $DB_PORT -d $DB_DATABASE -U $DB_USER $REMOTE_BKP_PATH/"$restore_target"_backup.dump"
+        echo "Using pg_restore command!! $target_file :: $bkp_file"
+    fi
+
+    psql -h $DB_HOST -p $DB_PORT -d $DB_DATABASE -U $DB_USER -c 'SELECT * FROM shell_script_02.produtos LIMIT 5;'
+    psql -h $DB_HOST -p $DB_PORT -d $DB_DATABASE -U $DB_USER -c 'SELECT * FROM shell_script_02.usuarios LIMIT 5;'
+
+    echo "[$PGPASSFILE] Restoring DB with cmd: $RESTORE_CMD"
+    result=$($RESTORE_CMD)
+
+    psql -h $DB_HOST -p $DB_PORT -d $DB_DATABASE -U $DB_USER -c 'SELECT COUNT(*) AS "TOTAL PRODUTOS" FROM shell_script_02.produtos LIMIT 5;'
+    psql -h $DB_HOST -p $DB_PORT -d $DB_DATABASE -U $DB_USER -c 'SELECT COUNT(*) AS "TOTAL USUARIOS" FROM shell_script_02.usuarios LIMIT 5;'
+}
+
 case $1 in
     "ip")
         apache_ip $2
@@ -151,6 +223,37 @@ case $1 in
         ;;
     "memory")
         monitor_memory
+        ;;
+    "db")
+        target=$2
+        if [ -z $target ];
+        then
+            while [ -z $target ]
+            do
+                echo "*INVALID* option! Which one database should be restored?"
+                backups_available=$(ls $REMOTE_BKP_PATH | tr -d "_backup.(sql|dump)")
+                echo "$backups_available"
+                read -p "Inform your target with full datetime: " target
+            done
+            echo ""
+            echo "New target is $target"
+            target_found=$(ls $REMOTE_BKP_PATH | tr -d "_backup.(sql|dump)" | grep -w $target)
+            if [ -z $target_found ];
+            then
+                echo "I quit!! $target *NOT FOUND* in:"
+                echo "$backups_available"
+                exit 1
+            fi
+        fi
+
+        # backup_db
+
+        # ls -lah $BKP_PATH
+        # cat $BKP_PATH/* | wc -l
+        # ls -lah $REMOTE_BKP_PATH
+        # cat $REMOTE_BKP_PATH/* | wc -l
+
+        restore_db $target
         ;;
     *)
         # TODO better usage message
