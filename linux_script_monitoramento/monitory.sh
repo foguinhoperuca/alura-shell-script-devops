@@ -23,6 +23,38 @@ monitory() {
     grep -E "(fail(ed)?|error|denied|unauthorized)" /var/log/syslog 
 }
 
+network() {
+    ip=$1
+
+    if [ -z $ip ]; then
+        echo "No ip informed!"
+    fi
+
+    res=$(ping -c 1 $ip > /dev/null)
+    # echo "[NEUTRAL Return status would be: $? ip: ${ip} res: ${res}"
+    if [ $? -ne 0 ]
+    then
+        echo "[ERROR] Return status would be: $? ip: ${ip}"
+        echo "[$NOW] got some error!! No conection to ${ip}" >> $REPORT_FILE
+    else
+        echo "[OK] Return status would be: $? ip: ${ip}"
+        echo "[$NOW] OK connection to ${ip}" >> $REPORT_FILE
+    fi
+
+    website="https://www.alura.com.br/"
+    http=$(curl -s --head $website | grep "HTTP/2 200" )
+    # echo "[NEUTRAL Return status would be: $? ip: ${ip} http: ${http}"
+    if [ $? -ne 0 ]
+    then
+        echo "[ERROR] Return status would be: $? website: ${website}"
+        echo "[$NOW] got some error!! No conection to with website ${website}" >> $REPORT_FILE
+    else
+        echo "[OK] Return status would be: $? website: ${website}"
+        echo "[$NOW] OK connection to ${website}" >> $REPORT_FILE
+    fi
+
+}
+
 case $1 in
     "watch")
         clear
@@ -35,6 +67,11 @@ case $1 in
         ;;
     "init")
         init_logs
+        ;;
+    "network")
+        clear
+        date
+        network $2
         ;;
     *)
         # TODO better usage message
