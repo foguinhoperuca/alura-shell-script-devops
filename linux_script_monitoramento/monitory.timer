@@ -1,0 +1,9 @@
+[Unit]
+Description=Timer to execute monitory
+
+[Timer]
+OnCalendar=*:0/15
+Persistent=True
+
+[Install]
+WantedBy=timers.target

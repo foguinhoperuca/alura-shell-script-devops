@@ -53,9 +53,39 @@ network() {
         echo "[$NOW] OK connection to ${website}" >> $REPORT_FILE
     fi
 
+    echo "----------------------------------------" >> $REPORT_FILE
+}
+
+disk() {
+    echo "Monitoring disk"
+
+    echo $NOW > $REPORT_FILE
+    df -h | grep -v "Filesystem" | awk '$5 > 70 {print $1 " esta com " $5 " de uso."}' >> $REPORT_FILE
+    du -sh $HOME >> $REPORT_FILE
+    echo "----------------------------------------" >> $REPORT_FILE
+}
+
+hardware() {
+    echo "Monitoring hardware"
+    echo $NOW > $REPORT_FILE
+    memory=$(free -h | grep Mem | awk '{print "Total: " $2 ", Usada: " $3 ", Livre: " $4}')
+    echo $memory
+    echo $memory >> $REPORT_FILE
+    echo "***"
+    cpu=$(top -bn1 | grep "Cpu(s)" | sed "s/.*, *\([0-9.]*\)%* id.*/\1/" | awk '{ print "CPU usage: " 100 - $1 "%" }')
+    echo $cpu
+    echo $cpu >> $REPORT_FILE
+    echo "+++"
+    filedisk=$(iostat | grep -E "Device|^sda|^sdb|^sdc" | awk '{ print $1, $2, $3, $4 }')
+    echo $filedisk
+    echo $filedisk >> $REPORT_FILE
+    echo "---"
 }
 
 case $1 in
+    "init")
+        init_logs
+        ;;
     "watch")
         clear
         date
@@ -65,13 +95,23 @@ case $1 in
         # echo "Final report ($REPORT_FILE):"
         # cat $REPORT_FILE
         ;;
-    "init")
-        init_logs
-        ;;
     "network")
         clear
         date
+        echo "" > $REPORT_FILE
         network $2
+        ;;
+    "disk")
+        clear
+        date
+        echo "" > $REPORT_FILE
+        disk
+        ;;
+    "hardware")
+        clear
+        date
+        echo "" > $REPORT_FILE
+        hardware
         ;;
     *)
         # TODO better usage message

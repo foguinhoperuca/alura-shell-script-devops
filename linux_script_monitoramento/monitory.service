@@ -1,0 +1,10 @@
+[Unit]
+Description=Script to monitory the system
+Wants=monitory.timer
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/monitory.sh
+
+[Install]
+WantedBy=multi-user.target
