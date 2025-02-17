@@ -1,0 +1,50 @@
+version: '3.5'
+
+services:
+  backend:
+    build: .
+    container_name: adopet-backend
+    volumes:
+      - .:/app
+    command: npm run start
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgres
+    networks:
+      - adopet
+    restart: unless-stopped
+
+  postgres:
+    image: postgres:latest
+    container_name: adopet-db
+    environment:
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: db_adopet
+      PGDATA: /data/postgres/new
+    volumes:
+      - postgres:/data/postgres
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5433:5432"
+    networks:
+      - adopet
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ../adopet-frontend
+    container_name: adopet-frontend
+    ports:
+      - "8090:3000"
+    networks:
+      - adopet
+    restart: unless-stopped
+
+networks:
+  adopet:
+    driver: bridge
+
+volumes:
+  postgres:
