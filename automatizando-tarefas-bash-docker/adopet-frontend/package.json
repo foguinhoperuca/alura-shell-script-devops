@@ -19,9 +19,11 @@
     "react-helmet": "^6.1.0",
     "react-hook-form": "^7.33.1",
     "react-router-dom": "^6.3.0",
-    "react-scripts": "^3.0.1",
+    "react-scripts": "^5.0.1",
+    "source-map-loader": "latest",
     "stream": "^0.0.2",
-    "util": "^0.12.5"
+    "util": "^0.12.5",
+    "yarn": "^1.22.22"
   },
   "scripts": {
     "start": "react-app-rewired start",
