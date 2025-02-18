@@ -21,3 +21,7 @@ https://cursos.alura.com.br/formacao-comecando-linux
 ## [Scripting: Automatizando Tarefas em DevOps](https://cursos.alura.com.br/formacao-scripting-automatizando-tarefas-devop://cursos.alura.com.br/formacao-scripting-automatizando-tarefas-devops) ##
 
 - [Scripting: Automatizando Tarefas com Bash e Docker](https://cursos.alura.com.br/course/scripting-automatizando-tarefas-bash-docker)
+
+## [DevOps](https://cursos.alura.com.br/formacao-devops) ##
+
+- [Ansible: implementando sua infraestrutura como c?digo](https://cursos.alura.com.br/course/ansible-implementando-infraestrutura-codigo "ansible-implementando-infraestrutura-codigo")
