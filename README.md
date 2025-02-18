@@ -25,3 +25,25 @@ https://cursos.alura.com.br/formacao-comecando-linux
 ## [DevOps](https://cursos.alura.com.br/formacao-devops) ##
 
 - [Ansible: implementando sua infraestrutura como c?digo](https://cursos.alura.com.br/course/ansible-implementando-infraestrutura-codigo "ansible-implementando-infraestrutura-codigo")
+
+
+
+    #    - shell: 'echo hello world!!'
+    # - name: install apache httpd
+    #   become: yes
+    #   ansible.builtin.apt:
+    #     name: apache2
+    #     state: latest
+    #     update_cache: yes
+
+
+
+    - name: inst
+      become: yes
+      ansible.builtin.apt:
+        pkg:
+          # - apache2
+          - ghostscript
+          - libapach2-mod-php
+      state: latest
+      update_cache: yes
