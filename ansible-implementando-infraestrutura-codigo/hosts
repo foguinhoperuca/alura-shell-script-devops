@@ -1,2 +1,5 @@
-[adc]
-172.16.1.36 ansible_user=admlocal asible_ssh_private_key_file=~/.ssh/id_rsa
+[wordpress]
+172.16.1.36 ansible_user=admlocal ansible_ssh_private_key_file=~/.ssh/id_rsa
+
+[mysql]
+172.16.1.12 ansible_user=ladm ansible_ssh_private_key_file=~/.ssh/id_rsa

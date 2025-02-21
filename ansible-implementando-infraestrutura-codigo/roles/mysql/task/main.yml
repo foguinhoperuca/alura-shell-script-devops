@@ -1,0 +1,32 @@
+---
+    - name: Install mysql
+      ansible.builtin.apt:
+        pkg:
+          - mysql-server
+          - python3-pymysql
+        state: latest
+        update_cache: yes
+      become: yes
+    - name: Create a new database with name 'wordpress_db'
+      community.mysql.mysql_db:
+        name: wordpress_db
+        state: present
+        login_unix_socket: /run/mysqld/mysqld.sock
+      become: yes
+    - name: Create database user and password with all database privileges
+      community.mysql.mysql_user:
+        name: wordpress_user
+        password: '{{ wp_db_pass }}'
+        priv: '{{ wp_db_name }}.*: SELECT, INSERT,UPDATE,DELETE,CREATE,DROP,ALTER'
+        state: present
+        login_unix_socket: /run/mysqld/mysqld.sock
+        host: '{{ item }}'
+      with_items: '{{ db_ips_allowed }}'
+      become: yes
+    - name: configure database
+      notify: restart mysql
+      ansible.builtin.replace:
+        path: /etc/mysql/mysql.conf.d/mysqld.cnf
+        regexp: "127.0.0.1"
+        replace: "0.0.0.0"
+      become: yes

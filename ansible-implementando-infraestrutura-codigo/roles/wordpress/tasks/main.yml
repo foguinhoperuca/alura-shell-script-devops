@@ -1,0 +1,56 @@
+---
+    - name: Change file ownership, group and permission
+      ansible.builtin.file:
+        path: /srv/www
+        state: directory
+        owner: www-data
+        group: www-data
+      become: yes
+    - name : Unarchive a file that needs to be downloaded
+      ansible.builtin.unarchive:
+        src: https://wordpress.org/latest.tar.gz
+        dest: /srv/www
+        remote_src: yes
+      become: yes
+    - name: Configure Apache to serve WordPress.
+      ansible.builtin.template:
+        src: 'templates/wordpress.conf.j2'
+        dest: '/etc/apache2/sites-available/wordpress.conf'
+      become: yes
+    - name: a2ensite wordpress.conf
+      command: a2ensite wordpress.conf
+      notify:
+        - restart apache2
+      become: yes
+    - name: Copy file with owner and permission
+      ansible.builtin.copy:
+        src: '{{ wp_dir }}/wp-config-sample.php'
+        dest: '{{ wp_dir }}/wp-config.php'
+        remote_src: yes
+      become: yes
+    - name: Replace old hostname with new one
+      ansible.builtin.replace:
+        path: '{{ wp_dir }}/wp-config.php'
+        regexp: '{{ item.regexp }}'
+        replace: '{{ item.replace }}'
+      with_items:
+        - { regexp: 'database_name_here', replace: '{{ wp_db_name }}' }
+        - { regexp: 'username_here', replace: '{{ wp_db_user }}' }
+        - { regexp: 'password_here', replace: '{{ wp_db_pass }}' }
+        - { regexp: 'localhost', replace: '{{ db_ip }}' }
+      become: yes
+    - name: Replace localhost entry searching for a literal string to avoid scaping
+      ansible.builtin.lineinfile:
+        path: '{{ wp_dir }}/wp-config.php'
+        search_string: "{{ item.search_string }}"
+        line: "{{ item.line }}"
+      with_items:
+        - { search_string: "define( 'AUTH_KEY',         'put your unique phrase here' );", line: "define('AUTH_KEY',         '{{ secrets.auth_key }}');"}
+        - { search_string: "define( 'SECURE_AUTH_KEY',  'put your unique phrase here' );", line: "define('SECURE_AUTH_KEY',  '{{ secrets.secure_auth_key }}');"}
+        - { search_string: "define( 'LOGGED_IN_KEY',    'put your unique phrase here' );", line: "define('LOGGED_IN_KEY',    '{{ secrets.logged_in_key }}');"}
+        - { search_string: "define( 'NONCE_KEY',        'put your unique phrase here' );", line: "define('NONCE_KEY',        '{{ secrets.nonce_key }}');"}
+        - { search_string: "define( 'AUTH_SALT',        'put your unique phrase here' );", line: "define('AUTH_SALT',        '{{ secrets.auth_salt }}');"}
+        - { search_string: "define( 'SECURE_AUTH_SALT', 'put your unique phrase here' );", line: "define('SECURE_AUTH_SALT', '{{ secrets.secure_alt_salt }}');"}
+        - { search_string: "define( 'LOGGED_IN_SALT',   'put your unique phrase here' );", line: "define('LOGGED_IN_SALT',   '{{ secrets.logged_in_salt }}');"}
+        - { search_string: "define( 'NONCE_SALT',       'put your unique phrase here' );", line: "define('NONCE_SALT',       '{{ secrets.nonce_salt }}');"}
+      become: yes

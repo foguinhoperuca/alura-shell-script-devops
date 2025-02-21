@@ -1,0 +1,13 @@
+---
+db_ip: "172.16.1.12"
+wp_dir: "/srv/www/wordpress"
+# Using same as in course - no new secret generated.
+secrets:
+  auth_key:        'M1gEa2JY1l}ZpB/SO!9,J2/+1qIkv:|Uamj3ZHq-#e?enUh`mZ~doh{c9j33fs?v'
+  secure_auth_key: '?a} _1de$J+Zs4K04td5!F>0eQ|K&JpE-JOMSO@.x+S*z8lU6;l&|7w.K5zC0O*q'
+  logged_in_key:   'L1wUM1q!2|h0]8Sk7o[yP+IFQJ4x{ShE}h![5TM4d,@;?y,$_hzut+Rj2v6%f(UA'
+  nonce_key:       'sP-=A6Ky/Xdmh?Xjrz^6n,?I/Tc76VSPgUjmQ[hU=^|#J?gUe[`=3|(Y0BPe>_G8'
+  auth_salt:       'fu`rWyp3$`t jS!OMMs~>2e+|S|w43nXC7=QVneRD8-nfl`_5Ibw29&y&/A-,).s'
+  secure_alt_salt: ')H@G&E4An=9`GQ*H+]~_u$k-vdDLeC>JD@AxTAwL-Ll(c9v+2F(sj(-G:}BM6hKD'
+  logged_in_salt:  'Ji tOfH-/YS>cnh4#/zQk%SB6,PNZ1/ {(}?Uj9L{sMK51m=G7(_A/BHR{0DU;tW'
+  nonce_salt:      '9l|t-3N)HX^SD##t!^lJ9+,27A[oABp^,(.ZzpinV{+;F^h%W[Nv3nRi}9wPbTlj'
