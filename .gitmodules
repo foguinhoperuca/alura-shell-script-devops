@@ -1,0 +1,6 @@
+[submodule "http-entendendo-web-por-baixo-dos-panos/api-alurabooks"]
+	path = http-entendendo-web-por-baixo-dos-panos/api-alurabooks
+	url = https://github.com/alura-cursos/api-alurabooks.git
+[submodule "http-entendendo-web-por-baixo-dos-panos/curso-react-alurabooks"]
+	path = http-entendendo-web-por-baixo-dos-panos/curso-react-alurabooks
+	url = https://github.com/alura-cursos/curso-react-alurabooks.git

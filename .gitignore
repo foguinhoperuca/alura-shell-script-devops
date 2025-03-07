@@ -63,3 +63,5 @@ package-lock.json
 
 # patch, git and workflow
 *.patch
+
+.env*

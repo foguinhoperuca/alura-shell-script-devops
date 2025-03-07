@@ -161,5 +161,5 @@ case $1 in
         stats_for_conflicts
         ;;
     *)
-        echo "USAGE: auto-tash.sh [monitory | disk | conflict]. $1 **NOT** found."
+        echo "USAGE: auto-task.sh [monitory | disk | conflict]. $1 **NOT** found."
 esac

@@ -35,3 +35,9 @@ All learning materials.
 [Formação na Alura](https://cursos.alura.com.br/formacao-primeiros-passos-devops)
 
 - [DevOps: explorando conceitos, comandos e scripts no Linux CLI](https://cursos.alura.com.br/course/devops-conceitos-comandos-scripts-linux-cli)
+
+## Ferramentas Essenciais Para Devs ##
+
+[Formação na Alura](https://cursos.alura.com.br/formacao-ferramentas-para-devs)
+
+- [NGINX: Servidor Web, Proxy Reverso e API Gateway](https://cursos.alura.com.br/course/nginx-servidor-web-proxy-reverso-api-gateway)
