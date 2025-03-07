@@ -22,7 +22,7 @@ root() {
     echo "Host: $host"
     echo 
     echo
-#    sleep 2
+    sleep 2
 }
 
 do_login() {
@@ -42,7 +42,6 @@ do_login() {
     sleep 2
 }
 
-clear
 case $1 in
     "load_vars")
         load_vars
