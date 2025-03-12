@@ -1,9 +1,9 @@
 #/bin/bash
 
-#RED='\033[0;31m'
-#YELLOW='\033[1;33m'
-#BLUE='\033[0;34m'
-#NC='\033[0m'
+RED='\033[0;31m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+NC='\033[0m'
 
 load_vars() {
     export ENV_FILE=.env
@@ -11,6 +11,10 @@ load_vars() {
     export ENV_PORT=$(cat $ENV_FILE | grep PORT | cut -d = -f2)
     export ENV_USER=$(cat $ENV_FILE | grep USER | cut -d = -f2)
     export ENV_PASS=$(cat $ENV_FILE | grep PASS | cut -d = -f2)
+}
+
+ssl() {
+    echo "Understending ssl"
 }
 
 root() {

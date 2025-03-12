@@ -10,6 +10,7 @@ All learning materials.
 
 # Courses #
 
+[Formaçoes descontinuadas](https://cursos.alura.com.br/conteudos-descontinuados/cursos "Ainda sim úteis")
 ## Começando em Linux ##
 
 [Formação na Alura](https://cursos.alura.com.br/formacao-comecando-linux "Finalizado")
