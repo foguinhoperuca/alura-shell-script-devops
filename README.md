@@ -11,6 +11,7 @@ All learning materials.
 # Courses #
 
 [Formaçoes descontinuadas](https://cursos.alura.com.br/conteudos-descontinuados/cursos "Ainda sim úteis")
+
 ## Começando em Linux ##
 
 [Formação na Alura](https://cursos.alura.com.br/formacao-comecando-linux "Finalizado")
@@ -33,9 +34,10 @@ All learning materials.
 
 ## Começando em DevOps ##
 
-[Formação na Alura](https://cursos.alura.com.br/formacao-primeiros-passos-devops)
+[Formação na Alura](https://cursos.alura.com.br/formacao-primeiros-passos-devops "Comece com o pé direito em DevOps.")
 
 - [DevOps: explorando conceitos, comandos e scripts no Linux CLI](https://cursos.alura.com.br/course/devops-conceitos-comandos-scripts-linux-cli)
+- [DevOps: trabalhando com trÁ?fego seguro em comunicações web](https://cursos.alura.com.br/course/devops-trafego-seguro-comunicacoes-web)
 
 ## Ferramentas Essenciais Para Devs ##
 

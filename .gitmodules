@@ -4,3 +4,9 @@
 [submodule "http-entendendo-web-por-baixo-dos-panos/curso-react-alurabooks"]
 	path = http-entendendo-web-por-baixo-dos-panos/curso-react-alurabooks
 	url = https://github.com/alura-cursos/curso-react-alurabooks.git
+[submodule "devops-trafego-seguro-comunicacoes-web/curso-react-alurabooks"]
+	path = devops-trafego-seguro-comunicacoes-web/curso-react-alurabooks
+	url = https://github.com/alura-cursos/curso-react-alurabooks.git
+[submodule "devops-trafego-seguro-comunicacoes-web/api-alurabooks"]
+	path = devops-trafego-seguro-comunicacoes-web/api-alurabooks
+	url = https://github.com/alura-cursos/api-alurabooks.git
