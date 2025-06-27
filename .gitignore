@@ -53,6 +53,7 @@ m4/lt~obsolete.m4
 *~*
 *#*
 *.swp
+*.swo
 
 ## Vagrant
 .vagrant
@@ -65,3 +66,4 @@ package-lock.json
 *.patch
 
 .env*
+
