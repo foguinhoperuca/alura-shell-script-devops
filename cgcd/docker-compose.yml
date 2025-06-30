@@ -1,0 +1,11 @@
+version: "3.9"
+services:
+  server:
+    build: .
+    container_name: allbooks-cgcd
+    ports:
+      - "8087:3000"
+#  app:
+#    image: foguinhoperuca/allbooks-cgcd:1.2
+#    ports:
+#      - "8087:3000"

@@ -3,5 +3,6 @@ LABEL description="Alura's allbook frontend app to use in docker's study"
 WORKDIR /app
 COPY package.json .
 RUN npm install
+EXPOSE 3000
 COPY . .
 ENTRYPOINT npm start

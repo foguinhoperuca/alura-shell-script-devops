@@ -38,7 +38,7 @@ All learning materials.
 
 - [DevOps: explorando conceitos, comandos e scripts no Linux CLI](https://cursos.alura.com.br/course/devops-conceitos-comandos-scripts-linux-cli)
 - [DevOps: trabalhando com tráfego seguro em comunicações web](https://cursos.alura.com.br/course/devops-trafego-seguro-comunicacoes-web)
-- [DevOps: trabalhando com repositórios no GitHub](https://cursos.alura.com.br/course/devops-trabalhando-repositorios-github "Sem repositório separado - técnicas aplicadas em outros projetos")
+- [DevOps: trabalhando com repositórios no GitHub](https://cursos.alura.com.br/course/devops-trabalhando-repositorios-github "trab_repos_github")
 - [DevOps: construindo e gerindo containers com o Docker](https://cursos.alura.com.br/course/devops-construindo-gerindo-containers-docker "cgcd")
 
 ## Ferramentas Essenciais Para Devs ##
