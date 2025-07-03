@@ -49,3 +49,9 @@
 	# mongo container *MUST* be called meu-mongo
 	docker run -d --name meu-mongodb --network alura-docker-and-compose mongo
 	docker run --network alura-docker-and-compose -d -p 8090:3000 douglasq/alura-books:cap05
+
+06.07_docker-compose:
+	docker-compose build
+	docker-compose up -d
+	docker-compose ps
+	docker exec -it alura-books-1 ping node2
