@@ -28,9 +28,15 @@ All learning materials.
 
 ## Formação DevOps ##
 
-[Formação na Alura](https://cursos.alura.com.br/formacao-devops)
+[Formação na Alura - Nova](https://cursos.alura.com.br/formacao-devops "Nova")
 
 - [Ansible: implementando sua infraestrutura como código](https://cursos.alura.com.br/course/ansible-implementando-infraestrutura-codigo "ansible-implementando-infraestrutura-codigo")
+
+[Formação na Alura - Descontinuada](https://cursos.alura.com.br/formacao-devops-v68262 "Antiga")
+
+[Formação na Alura - DevOps com Linux e Git](https://cursos.alura.com.br/formacao-devops-com-linux-e-git-v8519 "Possui muitos cursos em comum com a versão antiga da formação devops e parecer ser a antecessora dela")
+
+- [Docker: Criando containers sem dor de cabeça](https://cursos.alura.com.br/course/docker-e-docker-compose "docker_and_compose")
 
 ## Começando em DevOps ##
 
