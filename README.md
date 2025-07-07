@@ -6,6 +6,7 @@ All learning materials.
 - Docker
 - Vagrant
 - Terraform
+- Pulumi
 - ...
 
 # Courses #
@@ -26,18 +27,6 @@ All learning materials.
 
 - [Scripting: Automatizando Tarefas com Bash e Docker](https://cursos.alura.com.br/course/scripting-automatizando-tarefas-bash-docker)
 
-## Formação DevOps ##
-
-[Formação na Alura - Nova](https://cursos.alura.com.br/formacao-devops "Nova")
-
-- [Ansible: implementando sua infraestrutura como código](https://cursos.alura.com.br/course/ansible-implementando-infraestrutura-codigo "ansible-implementando-infraestrutura-codigo")
-
-[Formação na Alura - Descontinuada](https://cursos.alura.com.br/formacao-devops-v68262 "Antiga")
-
-[Formação na Alura - DevOps com Linux e Git](https://cursos.alura.com.br/formacao-devops-com-linux-e-git-v8519 "Possui muitos cursos em comum com a versão antiga da formação devops e parecer ser a antecessora dela")
-
-- [Docker: Criando containers sem dor de cabeça](https://cursos.alura.com.br/course/docker-e-docker-compose "docker_and_compose")
-
 ## Começando em DevOps ##
 
 [Formação na Alura](https://cursos.alura.com.br/formacao-primeiros-passos-devops "Comece com o pé direito em DevOps.")
@@ -47,8 +36,33 @@ All learning materials.
 - [DevOps: trabalhando com repositórios no GitHub](https://cursos.alura.com.br/course/devops-trabalhando-repositorios-github "trab_repos_github")
 - [DevOps: construindo e gerindo containers com o Docker](https://cursos.alura.com.br/course/devops-construindo-gerindo-containers-docker "cgcd")
 
+## Formação DevOps ##
+
+### Nova Formação (2024/2025) ###
+
+[Formação na Alura - Nova](https://cursos.alura.com.br/formacao-devops "Nova")
+
+- [Ansible: implementando sua infraestrutura como código](https://cursos.alura.com.br/course/ansible-implementando-infraestrutura-codigo "ansible-implementando-infraestrutura-codigo")
+
+### Anterior (até 2024) ###
+
+[Formação na Alura - Descontinuada](https://cursos.alura.com.br/formacao-devops-v68262 "Antiga")
+
+### Formação Prévia (Anterior a de até 2024) ###
+
+[Formação na Alura - DevOps com Linux e Git](https://cursos.alura.com.br/formacao-devops-com-linux-e-git-v8519 "Possui muitos cursos em comum com a versão antiga da formação devops e parecer ser a antecessora dela")
+
+- [Terraform: automatize a infraestrutura na nuvem](https://cursos.alura.com.br/course/terraform "terraform")
+- [Docker: Criando containers sem dor de cabeça](https://cursos.alura.com.br/course/docker-e-docker-compose "docker_and_compose")
+
 ## Ferramentas Essenciais Para Devs ##
 
 [Formação na Alura](https://cursos.alura.com.br/formacao-ferramentas-para-devs)
 
 - [NGINX: Servidor Web, Proxy Reverso e API Gateway](https://cursos.alura.com.br/course/nginx-servidor-web-proxy-reverso-api-gateway)
+
+## Infraestrutura como Código ##
+
+[Aprenda a criar e gerenciar sua infraestrutura na AWS com base em código, utilizando Terraform, Ansible e Pulumi](https://cursos.alura.com.br/formacao-infraestrutura-codigo)
+
+- [Infraestrutura como código: preparando máquinas na AWS com Ansible e Terraform](https://cursos.alura.com.br/course/infraestrutura-codigo-maquinas-aws-ansible-terraform "aws-ansible-terraform")
