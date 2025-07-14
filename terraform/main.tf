@@ -12,8 +12,7 @@ resource "aws_instance" "dev" {
   tags = {
       Name = "dev_${count.index}"
   }
-  # vpc_security_group_ids = ["sg-0777fb748b6b6bcf5"]
-  vpc_security_group_ids = ["sg-0df47e9be592e7453"]
+  vpc_security_group_ids = ["sg-0777fb748b6b6bcf5"] aws-default: sg-0df47e9be592e7453
 }
 
 resource "aws_security_group" "access-ssh" {
@@ -23,13 +22,15 @@ resource "aws_security_group" "access-ssh" {
         from_port = 22
         to_port = 22
         protocol = "tcp"
-        cidr_blocks = ["170.247.10.21/32"] # PMS 2025-07-14
+        # cidr_blocks = ["170.247.10.21/32"] # PMS 2025-07-14
+        cidr_blocks = ["0.0.0.0/0"] # to correct work - I don't have a fixed ip
     }
     egress {
         from_port = 22
         to_port = 22
         protocol = "tcp"
-        cidr_blocks = ["170.247.10.21/32"] # PMS 2025-07-14
+        # cidr_blocks = ["170.247.10.21/32"] # PMS 2025-07-14
+        cidr_blocks = ["0.0.0.0/0"] # to correct work - I don't have a fixed ip
     }
     tags = {
         Name = "access"
