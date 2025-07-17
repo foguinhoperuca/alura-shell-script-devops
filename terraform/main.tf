@@ -10,10 +10,10 @@ provider "aws" {
 
 resource "aws_instance" "dev" {
   count = 3
-  # ami - image from ubuntu 24.04
-  ami = "ami-020cba7c55df1f615"
+  # ami = "ami-020cba7c55df1f615"
+  ami = var.amis["us-east-1"] # ami - image from ubuntu 24.04
   instance_type = "t2.micro"
-  key_name = "Openshift-Key used everywhere"
+  key_name = var.key_name
   tags = {
       Name = "dev_${count.index}"
   }
@@ -21,9 +21,9 @@ resource "aws_instance" "dev" {
 }
 
 resource "aws_instance" "dev4" {
-  ami = "ami-020cba7c55df1f615"
+  ami = var.amis["us-east-1"]
   instance_type = "t2.micro"
-  key_name = "Openshift-Key used everywhere"
+  key_name = var.key_name
   tags = {
       Name = "dev_4"
   }
@@ -32,9 +32,9 @@ resource "aws_instance" "dev4" {
 }
 
 resource "aws_instance" "dev5" {
-  ami = "ami-020cba7c55df1f615"
+  ami = var.amis["us-east-1"]
   instance_type = "t2.micro"
-  key_name = "Openshift-Key used everywhere"
+  key_name = var.key_name
   tags = {
       Name = "dev_5"
   }
@@ -43,12 +43,13 @@ resource "aws_instance" "dev5" {
 
 resource "aws_instance" "dev6" {
   provider = aws.us-east-2
-  ami = "ami-0d1b5a8c13042c939"
+  # ami = "ami-0d1b5a8c13042c939"
+  ami = var.amis["us-east-2"]
   instance_type = "t2.micro"
-  key_name = "Openshift-Key used everywhere"
+  key_name = var.key_name
   tags = {
       Name = "dev_6"
   }
   vpc_security_group_ids = ["${aws_security_group.access-ssh-us-east-2.id}"]
-  depends_on = ["aws_dynamodb_table.dynamodb-stage"]
+  depends_on = [aws_dynamodb_table.dynamodb-stage]
 }
