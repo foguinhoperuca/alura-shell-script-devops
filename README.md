@@ -52,7 +52,7 @@ All learning materials.
 
 [Formação na Alura - DevOps com Linux e Git](https://cursos.alura.com.br/formacao-devops-com-linux-e-git-v8519 "Possui muitos cursos em comum com a versão antiga da formação devops e parecer ser a antecessora dela")
 
-- [Terraform: automatize a infraestrutura na nuvem](https://cursos.alura.com.br/course/terraform "terraform")
+- [1308 - Terraform: automatize a infraestrutura na nuvem](https://cursos.alura.com.br/course/terraform "terraform")
 - [Docker: Criando containers sem dor de cabeça](https://cursos.alura.com.br/course/docker-e-docker-compose "docker_and_compose")
 
 ## Ferramentas Essenciais Para Devs ##
