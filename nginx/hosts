@@ -1,0 +1,4 @@
+127.0.0.1   nginx-devops-alura-webserver.jeffersoncampos.eti.br   nginx-devops-alura-webserver
+127.0.0.1   nginx-devops-alura-api-gateway.jeffersoncampos.eti.br nginx-devops-alura-api-gateway
+127.0.0.1   nginx-devops-alura-service01.jeffersoncampos.eti.br nginx-devops-alura-service01
+127.0.0.1   nginx-devops-alura-service02.jeffersoncampos.eti.br nginx-devops-alura-service02
