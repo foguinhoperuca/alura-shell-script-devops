@@ -59,7 +59,8 @@ All learning materials.
 
 [Formação na Alura](https://cursos.alura.com.br/formacao-ferramentas-para-devs)
 
-- [NGINX: Servidor Web, Proxy Reverso e API Gateway](https://cursos.alura.com.br/course/nginx-servidor-web-proxy-reverso-api-gateway)
+- [Expressões Regulares: faça buscas, validações e substituições de textos](https://cursos.alura.com.br/course/expressoes-regulares-buscas-validacoes-substituicoes-textos "regex")
+- [NGINX: Servidor Web, Proxy Reverso e API Gateway](https://cursos.alura.com.br/course/nginx-servidor-web-proxy-reverso-api-gateway "nginx")
 
 ## Infraestrutura como Código ##
 
