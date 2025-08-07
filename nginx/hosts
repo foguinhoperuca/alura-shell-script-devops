@@ -3,3 +3,5 @@
 127.0.0.1   nginx-devops-alura-service01.jeffersoncampos.eti.br nginx-devops-alura-service01
 127.0.0.1   nginx-devops-alura-service02.jeffersoncampos.eti.br nginx-devops-alura-service02
 127.0.0.1   nginx-devops-alura-loadbalancer.jeffersoncampos.eti.br nginx-devops-alura-loadbalancer
+127.0.0.1   nginx-devops-alura-backup.jeffersoncampos.eti.br nginx-devops-alura-backup
+127.0.0.1   nginx-devops-alura-fastcgi.jeffersoncampos.eti.br nginx-devops-alura-fastcgi

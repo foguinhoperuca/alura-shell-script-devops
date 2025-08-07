@@ -62,6 +62,7 @@ All learning materials.
 - [Swagger: documentando suas APIs](https://cursos.alura.com.br/course/swagger-documentando-apis "swagger")
 - [Expressões Regulares: faça buscas, validações e substituições de textos](https://cursos.alura.com.br/course/expressoes-regulares-buscas-validacoes-substituicoes-textos "regex")
 - [NGINX: Servidor Web, Proxy Reverso e API Gateway](https://cursos.alura.com.br/course/nginx-servidor-web-proxy-reverso-api-gateway "nginx")
+- [NGINX Parte 2: performance, FastCGI e HTTPS](https://cursos.alura.com.br/course/nginx-parte-2-performance-fastcgi-https "nginx")
 
 ## Infraestrutura como Código ##
 
