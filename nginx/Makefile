@@ -6,3 +6,6 @@ php-server:
 php_server:
 	cd fast_cgi
 	docker run --rm -it -p 9000:9000 -v $(pwd):/fast_cgi php:fpm
+
+generate-https:
+	openssl req -x509 -nodes -days 1024 -newkey rsa:2048 -keyout localhost.key -out localhost.crt

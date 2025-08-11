@@ -6,3 +6,4 @@
 127.0.0.1   nginx-devops-alura-backup.jeffersoncampos.eti.br nginx-devops-alura-backup
 127.0.0.1   nginx-devops-alura-fastcgi.jeffersoncampos.eti.br nginx-devops-alura-fastcgi
 127.0.0.1   nginx-devops-alura-perfomance.jeffersoncampos.eti.br nginx-devops-alura-performance
+127.0.0.1   nginx-devops-alura-https.jeffersoncampos.eti.br nginx-devops-alura-https
