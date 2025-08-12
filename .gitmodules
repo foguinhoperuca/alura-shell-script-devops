@@ -16,3 +16,6 @@
 [submodule "regex/alura_course_repos"]
 	path = regex/alura_course_repos
 	url = git@github.com:alura-cursos/regex_curso.git
+[submodule "kubernets_01/alura-news"]
+	path = kubernets_01/alura-news
+	url = git@github.com:alura-cursos/curso-kubernetes.git

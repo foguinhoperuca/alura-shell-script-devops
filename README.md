@@ -54,6 +54,7 @@ All learning materials.
 
 - [1308 - Terraform: automatize a infraestrutura na nuvem](https://cursos.alura.com.br/course/terraform "terraform")
 - [Docker: Criando containers sem dor de cabeça](https://cursos.alura.com.br/course/docker-e-docker-compose "docker_and_compose")
+- [Kubernetes: Orquestração de containers](https://cursos.alura.com.br/course/kubernetes-orquestracao "kubernetes_01")
 
 ## Ferramentas Essenciais Para Devs ##
 

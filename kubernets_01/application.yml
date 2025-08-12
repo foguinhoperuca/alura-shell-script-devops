@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: app-news
+spec:
+  containers:
+    - name: conteiner-app
+      image: jnlucas/image-phpmysql:latest
+      ports:
+        - containerPort: 80
