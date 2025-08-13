@@ -70,3 +70,9 @@ All learning materials.
 [Aprenda a criar e gerenciar sua infraestrutura na AWS com base em código, utilizando Terraform, Ansible e Pulumi](https://cursos.alura.com.br/formacao-infraestrutura-codigo)
 
 - [Infraestrutura como código: preparando máquinas na AWS com Ansible e Terraform](https://cursos.alura.com.br/course/infraestrutura-codigo-maquinas-aws-ansible-terraform "aws-ansible-terraform")
+
+## Começando em Cloud Computing ##
+
+[Aprenda os fundamentos de cloud computing e utilize a AWS para dar os primeiros passos em infraestrutura em Cloud](https://cursos.alura.com.br/formacao-cloud-computing)
+
+- [Começando em Cloud: usando a AWS e explorando os recursos da nuvem como serviço](https://cursos.alura.com.br/course/cloud-usando-aws-explorando-recursos-nuvem-servico "asws_init")

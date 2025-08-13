@@ -1,0 +1,32 @@
+diff --git a/.gitignore b/.gitignore
+new file mode 100644
+index 0000000..53b62df
+--- /dev/null
++++ b/.gitignore
+@@ -0,0 +1,2 @@
++*#*
++*.swp
+diff --git a/mysql/docker-compose.yml b/mysql/docker-compose.yml
+index 3d36cc4..f21f24e 100644
+--- a/mysql/docker-compose.yml
++++ b/mysql/docker-compose.yml
+@@ -10,6 +10,6 @@ services:
+       - '3306:3306'
+     environment:
+       MYSQL_DATABASE: 'empresa'
+-      MYSQL_USER: 'root'
++      MYSQL_USER: 'alura'
+       MYSQL_PASSWORD: 'q1w2e3r4'
+       MYSQL_ROOT_PASSWORD: 'q1w2e3r4'
+diff --git a/sistema/bancodedados.php b/sistema/bancodedados.php
+index f13bbe9..216a22c 100644
+--- a/sistema/bancodedados.php
++++ b/sistema/bancodedados.php
+@@ -1,6 +1,6 @@
+ <?php
+ 
+-$host = "banco_mysql";
++$host = "172.16.9.60";
+ $usuario = "root";
+ $senha = "q1w2e3r4";
+ $banco = "empresa";
