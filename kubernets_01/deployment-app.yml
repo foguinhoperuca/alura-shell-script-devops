@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-news-deployment
+spec:
+  selector:
+    matchLabels:
+      name: app-news-pod
+  template:
+    metadata:
+      labels:
+        name: app-news-pod
+    spec:
+      containers:
+        - name: container-app
+          # image: jnlucas/image-phpmysql:latest
+          image: foguinhoperuca/alura-news-app:v1
+          ports:
+            - containerPort: 80
