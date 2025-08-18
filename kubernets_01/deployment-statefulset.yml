@@ -1,0 +1,31 @@
+apiVersion: app/v1
+kind: StatefulSet
+metadata:
+  name: backend-news-statefulset
+spec:
+  serviceName: backend-news-statefulset
+  selector:
+    matchLabels:
+      name: backend-news-pod-statefulset
+  template:
+    metadata:
+      labels:
+        name: backend-news-pod-statefulset
+    spec:
+      containers:
+        - name: container-backend-statefulset
+          image: foguinhoperuca/alura-news-backend:v1
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: images
+              mountPath: /var/www/html/uploads
+            - name: sessions
+              mountPath: /tmp
+      volumes:
+        - name: images
+          persistentVolumeClaim:
+            claimName: permission-images
+        - name: sessions
+          persistentVolumeClaim:
+            claimName: permission-session

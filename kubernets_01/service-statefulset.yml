@@ -1,0 +1,12 @@
+apiVersion: app/v1
+kind: Service
+metadata:
+  name: service-backend-news-statefulset
+spec:
+  type: LoadBalancer
+  ports:
+    - name: http
+      port: 80
+      nodePort: 31822
+    selector:
+      name: backend-news-pod-statefulset

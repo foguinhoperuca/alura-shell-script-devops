@@ -24,27 +24,36 @@ dashboard:
 service-url:
 	minikube service <SERVICE_NAME> --url # url optional - just get url. Without it show data into cli and open url in browser.
 
+log-into-machine:
+	kubectl -it <POD_NAME> -- bash
+
 delete:
 	kubectl delete -f service-app.yml
 	kubectl delete -f deployment-app.yml
-	kubectl delete -f service-sys.yml
-	kubectl delete -f deployment-sys.yml
+	kubectl delete -f service-backend.yml
+	kubectl delete -f deployment-backend.yml
+	kubectl delete -f service-statefulset.yml
+	kubectl delete -f deployment-statefulset.yml
 
 start:
-	kubectl create -f deployment-sys.yml
-	kubectl create -f service-sys.yml
+	kubectl create -f deployment-backend.yml
+	kubectl create -f service-backend.yml
 	kubectl create -f deployment-app.yml
 	kubectl create -f service-app.yml
+	kubectl create -f permission-images.yml
+	kubectl create -f permission-session.yml
+	kubectl create -f deployment-statefulset.yml
+	kubectl create -f service-statefulset.yml
 
 alura-news-restart: delete start
 	@date
 
 build-docker-image:
-	docker build -t image-app Dockerfile_app
+	docker build -t foguinhoperuca/alura-news-app:v1 Dockerfile_app alura_news/
 	docker tag alura-news foguinhoperuca/alura-news-app:v1
 	docker push foguinhoperuca/alura-news-app:v1
 
-	docker build -t image-sys Dockerfile_sys
+	docker build -t foguinhoperuca/alura-news-sys:v1 Dockerfile_sys alura_news/
 	docker tag alura-news foguinhoperuca/alura-news-sys:v1
 	docker push foguinhoperuca/alura-news-sys:v1
 

@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: sys-news-deployment
+  name: backend-news-deployment
 spec:
   selector:
     matchLabels:
-      name: sys-news-pod
+      name: backend-news-pod
   template:
     metadata:
       labels:
-        name: sys-news-pod
+        name: backend-news-pod
     spec:
       containers:
-        - name: container-sys
+        - name: container-backend
           # image: jnlucas/image-phpmysql:latest
-          image: foguinhoperuca/alura-news-sys:v1
+          image: foguinhoperuca/alura-news-backend:v1
           ports:
             - containerPort: 80
