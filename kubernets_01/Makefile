@@ -75,3 +75,6 @@ manually_deployment:
 deployment_in_cli:
 	kubectl create deployment nginx-deploy --image=nginx
 	kubectl scale --replicas=3 deployment/nginx-deploy
+
+edit-kubernetes-resource:
+	kubectl edit deployment backend-news-deployment

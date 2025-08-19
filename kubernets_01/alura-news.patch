@@ -19,7 +19,7 @@ index 3d36cc4..f21f24e 100644
        MYSQL_PASSWORD: 'q1w2e3r4'
        MYSQL_ROOT_PASSWORD: 'q1w2e3r4'
 diff --git a/noticias/configuracao.php b/noticias/configuracao.php
-index 6a62f1d..7751950 100644
+index 6a62f1d..d428632 100644
 --- a/noticias/configuracao.php
 +++ b/noticias/configuracao.php
 @@ -1,4 +1,5 @@
@@ -27,7 +27,7 @@ index 6a62f1d..7751950 100644
  # URL DO SISTEMA DE NOTICIAS
 -const urlnoticias = 'http://localhost:8587/';
 +# const urlnoticias = 'http://localhost:8587/'; # old version without kubernetes
-+const urlnoticias = 'http://192.168.49.2:32537';
++const urlnoticias = 'http://127.0.0.1:37411/';
  ?>
 diff --git a/sistema/bancodedados.php b/sistema/bancodedados.php
 index f13bbe9..216a22c 100644

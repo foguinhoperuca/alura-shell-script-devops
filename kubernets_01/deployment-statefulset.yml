@@ -17,6 +17,10 @@ spec:
           image: foguinhoperuca/alura-news-backend:v1
           ports:
             - containerPort: 80
+          lifecycle:
+            postStart:
+              exec:
+                command: ["sh", "send_message.sh"]
           volumeMounts:
             - name: images
               mountPath: /var/www/html/uploads
