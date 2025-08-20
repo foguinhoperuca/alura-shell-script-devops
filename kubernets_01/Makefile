@@ -78,3 +78,17 @@ deployment_in_cli:
 
 edit-kubernetes-resource:
 	kubectl edit deployment backend-news-deployment
+
+autoscale:
+	kubectl autoscale deployment backend-news-deployment
+	kubectl autoscale deployment backend-news-deployment --cpu-percent=20 --min=1 --max=10  # 3 minutes of interval to measure
+
+hpa:
+	kubectl get hpa backend-news-deployment
+
+addons:
+	minikube addons list
+	minikube addons enable metric-server
+	minikube addons disable metric-server
+	minikube addons enable heapster
+	minikube addons enable logviewer

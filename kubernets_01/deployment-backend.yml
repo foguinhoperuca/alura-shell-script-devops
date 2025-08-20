@@ -17,3 +17,6 @@ spec:
           image: foguinhoperuca/alura-news-backend:v1
           ports:
             - containerPort: 80
+          resources:
+            requests:
+              cpu: 200m
