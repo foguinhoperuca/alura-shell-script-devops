@@ -19,3 +19,6 @@
 [submodule "kubernets_01/alura-news"]
 	path = kubernets_01/alura-news
 	url = git@github.com:alura-cursos/curso-kubernetes.git
+[submodule "otimizacao-performance-web_performance-http2-critical-path/original_repos"]
+	path = otimizacao-performance-web_performance-http2-critical-path/original_repos
+	url = git@github.com:alura-cursos/performance-web.git

@@ -13,6 +13,10 @@ All learning materials.
 
 [Formaçoes descontinuadas](https://cursos.alura.com.br/conteudos-descontinuados/cursos "Ainda sim úteis")
 
+## Performance Web ##
+
+Not a course per ser but usefull infra courses. See README.md in otimizacao-performance-web_performance-http2-critical-path folder.
+
 ## Começando em Linux ##
 
 [Formação na Alura](https://cursos.alura.com.br/formacao-comecando-linux "Finalizado")
