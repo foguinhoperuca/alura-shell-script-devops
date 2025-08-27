@@ -1,0 +1,27 @@
+diff --git a/.gitignore b/.gitignore
+index 91dfed8..ff9b5c4 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -1,2 +1,4 @@
+ .DS_Store
+-node_modules
+\ No newline at end of file
++node_modules
++*.swp
++package-lock.json
+diff --git a/package.json b/package.json
+index a582d90..b4815eb 100644
+--- a/package.json
++++ b/package.json
+@@ -17,5 +17,11 @@
+     "gulp-uglify": "^1.5.3",
+     "gulp-useref": "^3.0.8",
+     "gulp-inline-source": "^2.1.0"
++  },
++  "scripts": {
++    "preinstall": "npx npm-force-resolutions"
++  },
++  "resolutions": {
++    "graceful-fs": "^4.2.4"
+   }
+ }
