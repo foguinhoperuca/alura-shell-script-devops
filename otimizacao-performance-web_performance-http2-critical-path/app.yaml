@@ -1,0 +1,13 @@
+application: alura-optimization-jecampos
+runtime: php55
+api_version: 1
+version: web
+
+handlers:
+  - url: /
+    static_files: index.html
+    upload: index.html
+
+  - url: /assets
+    static_dir: assets
+    expiration: 365d

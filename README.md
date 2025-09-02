@@ -15,7 +15,7 @@ All learning materials.
 
 ## Performance Web ##
 
-Not a course per ser but usefull infra courses. See README.md in otimizacao-performance-web_performance-http2-critical-path folder.
+Not a course per ser but usefull infra courses. See [README.md in otimizacao-performance-web_performance-http2-critical-path](otimizacao-performance-web_performance-http2-critical-path/README.md) folder.
 
 ## Começando em Linux ##
 
