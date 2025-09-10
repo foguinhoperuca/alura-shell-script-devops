@@ -71,3 +71,7 @@ Add a new site to host some resource that can be downloaded in paralell. Maybe u
 Cache-control can be [public|private] 
 
 - [WPO Stats](https://wpostats.com)
+
+## HTTP2 ##
+
+- [Simple HTTP2 Server](https://github.com/GoogleChrome/simplehttp2server)

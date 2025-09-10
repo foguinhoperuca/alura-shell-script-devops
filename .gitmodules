@@ -22,3 +22,6 @@
 [submodule "otimizacao-performance-web_performance-http2-critical-path/original_repos"]
 	path = otimizacao-performance-web_performance-http2-critical-path/original_repos
 	url = git@github.com:alura-cursos/performance-web.git
+[submodule "otimizacao-performance-web_performance-http2-critical-path/original_course_02"]
+	path = otimizacao-performance-web_performance-http2-critical-path/original_course_02
+	url = git@github.com:alura-cursos/performance-web-2.git
