@@ -7,6 +7,10 @@ handlers:
   - url: /
     static_files: index.html
     upload: index.html
+    expiration: 0s
+    http_headers:
+      #      Link: <assets/img/background-cidade-fundo.svg>; rel=preload; as=image
+      Link: Link: <assets/img/logo-alura.svg>; rel=preload; as=image, <assets/img/background-cidade-fundo.svg>; rel=preload; as=image
 
   - url: /assets
     static_dir: assets
