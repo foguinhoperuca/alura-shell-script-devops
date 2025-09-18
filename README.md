@@ -59,6 +59,7 @@ Not a course per ser but usefull infra courses. See [README.md in otimizacao-per
 - [1308 - Terraform: automatize a infraestrutura na nuvem](https://cursos.alura.com.br/course/terraform "terraform")
 - [Docker: Criando containers sem dor de cabeça](https://cursos.alura.com.br/course/docker-e-docker-compose "docker_and_compose")
 - [Kubernetes: Orquestração de containers](https://cursos.alura.com.br/course/kubernetes-orquestracao "kubernetes_01")
+- [Grafana e Telegraf: Monitoramento em Tempo Real](https://cursos.alura.com.br/course/grafana-telegraf-monitoramento "grafana-telegraf-monitoramento")
 
 ## Ferramentas Essenciais Para Devs ##
 
