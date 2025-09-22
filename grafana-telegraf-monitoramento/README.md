@@ -2,7 +2,7 @@
 
 Exemplo de Ferramentas:
 * Prometheus
-* Grauylog
+* Graylog
 * Appdynamics
 * dynatrace
 * CA
@@ -10,3 +10,9 @@ Exemplo de Ferramentas:
 * Netdata
 * Telegraf
 * Grafana
+
+# Env #
+
+- grafana -> 3000
+- influx-db -> 8181
+- telegraf ->
