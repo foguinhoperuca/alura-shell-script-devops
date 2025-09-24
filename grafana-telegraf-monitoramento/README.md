@@ -21,6 +21,9 @@ Exemplo de Ferramentas:
 
 - stress-ng: can stress various subsystems of a computer.  It can stress load CPU, cache, disk, memory, socket and pipe I/O, scheduling and much more.
 
+# Conf Influxdb3 #
+
+Should you configure it as a service in /etc/systemd/system/influxdb3.service
 
 # Goals #
 

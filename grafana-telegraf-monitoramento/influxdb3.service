@@ -1,0 +1,15 @@
+[Unit]
+Description=InfluxDB 3 Server
+After=network-online.target
+
+[Service]
+Type=simple
+User=influxdb
+Group=influxdb
+ExecStart=/usr/lib/influxdb3/influxdb3 serve --node-id='node0' --http-bind='0.0.0.0:8181' --object-store=file --data-dir /var/lib/influxdb3/data
+PIDFile=/var/lib/influxdb3/influx.pid
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
