@@ -7,7 +7,7 @@ Exemplo de Ferramentas:
 * dynatrace
 * CA
 * Zabbix
-* Netdata
+* [Netdata](https://www.netdata.cloud/ "Possui uma versão community mas com limitação nas funcionalidades. Depois tem versões pagas.")
 * Telegraf
 * Grafana
 
