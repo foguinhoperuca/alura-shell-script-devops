@@ -78,9 +78,15 @@ body {
 footer {
 	background-color: #333;
 	color: #FFF;
-	padding: 20px;
+	padding: 0 20px;
 	margin-top: 10px;
-    font-size: 12px;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+}
+
+footer div {
+    text-align: right;
 }
 
 footer address:last-child {
