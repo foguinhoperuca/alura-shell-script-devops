@@ -13,6 +13,8 @@ All learning materials.
 
 [Formaçoes descontinuadas](https://cursos.alura.com.br/conteudos-descontinuados/cursos "Ainda sim úteis")
 
+[Segurança em Pipelines: Integrando práticas de segurança no CI/CD](https://cursos.alura.com.br/course/seguranca-pipelines-integrando-praticas-seguranca-ci-cd "https://github.com/alura-cursos/4829-seguranca-ci-cd")
+
 ## Performance Web ##
 
 Not a course per ser but usefull infra courses. See [README.md in otimizacao-performance-web_performance-http2-critical-path](otimizacao-performance-web_performance-http2-critical-path/README.md) folder.
